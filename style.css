@@ -5,20 +5,64 @@
 }
 
 body{
+    font-family: "Rubik", sans-serif;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 1rem;
     width: 100vw;
     height: 100vh;
+    background-color: rgb(174, 174, 219);
+}
+
+button{
+    padding: 1rem 3rem;
+    cursor: pointer;
+    background-color: blanchedalmond;
+    border-style: none;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+button:hover{
+    background-color: rgb(247, 222, 185);
+}
+input{
+    padding: 0.5rem 2rem;
+    font-size: 1rem;
+    border-style: none;
+    text-align: center;
+}
+label{
+    font-size: 1.5rem;
+}
+
+#greetings-cont{
+    position: absolute;
+    top: 3%;
+    left: 3%;
+}
+
+.todo-cont, .login-cont{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    border-radius: 0.5rem;
+}
+
+.login-cont{
+    background-color: aliceblue;
+    height: 30%;
 }
 
 .todo-cont{
     background-color: aquamarine;
-    width: 50%;
     height: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
+}
+
+.todo-cont li{
+    list-style-type: none;
 }

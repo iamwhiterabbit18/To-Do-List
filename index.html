@@ -4,12 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
     <script defer src="script.js"></script>
     <title>To Do List</title>
 </head>
 <body>
-    <div class="todo-cont">
+    <div id="greetings-cont"></div>
+    <div class="login-cont">
+        <label for="username">Enter Username:</label>
+        <input type="text" name="username" id="username">
+        <button id="log-btn">Log In</button>
+    </div>
+    <div class="todo-cont" style="display: none;">
         <h1>To Do List</h1>
+        <label for="item">Enter Item:</label>
         <input type="text" name="item" id="item">
         <button id="btn" onclick="handleChange">Submit</button>
         <ul id="todos"></ul>
