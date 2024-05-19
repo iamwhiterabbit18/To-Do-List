@@ -7,6 +7,8 @@ const logBtn = document.getElementById('log-btn')
 const todos = document.getElementById('todos');
 const greetingsCont = document.getElementById('greetings-cont');
 
+let tasks = [];
+
 function handleUsername(){
     let username = document.getElementById('username').value;
 
@@ -18,6 +20,7 @@ function handleUsername(){
             .style.display ='none';
             document.querySelector('.todo-cont')
             .style.display ='flex';
+            document.getElementById('username').value = '';
         }
         else{
             alert('Please enter username');
@@ -25,14 +28,59 @@ function handleUsername(){
 }
 
 function handleChange(){
-    let item = document.getElementById('item').value;
+    let newTasks = document.getElementById('new-tasks').value;
 
-        if(item){
-            let li = document.createElement('li');
-            li.textContent = item;
-            todos.append(li);
+        if(newTasks){
+            tasks.push({ text: newTasks, completed: false});
+            renderList();
         }
         else{
-            alert('Please enter an item')
+            alert('Please enter a task');
         }
+}
+
+function renderList(){
+    todos.innerHTML = ''; //rerender new list
+    tasks.forEach(task =>{
+        let li = document.createElement('li');
+        li.textContent = task.text;
+        let index = tasks.indexOf(task);
+        li.id = index;
+        todos.append(li);
+        let btnContainer = document.createElement('div');
+        btnContainer.className = "added-btns";
+        todos.append(btnContainer);
+        addBtns(index, btnContainer);
+        document.getElementById('new-tasks').value = '';
+        console.log(tasks)
+    })
+}
+
+function addBtns(index, btnContainer){
+    let toggle = document.createElement('button');
+    let remove = document.createElement('button');
+
+    toggle.textContent = "👍";
+    toggle.value = index;
+    toggle.className = tasks[index].completed ? 'toggled' : 'untoggle';
+    toggle.addEventListener('click', ()=> handleToggle(index));
+
+    remove.textContent = "❌";
+    remove.value = index;
+    remove.className = 'delete';
+    remove.addEventListener('click', ()=> handleDelete(index));
+
+    btnContainer.append(toggle);
+    btnContainer.append(remove);
+
+}
+
+function handleToggle(index){
+    tasks[index].completed = !tasks[index].completed;
+    renderList();
+}
+
+function handleDelete(index){
+    tasks.splice(index, 1);
+    renderList();
 }

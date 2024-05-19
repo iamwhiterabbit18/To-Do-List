@@ -19,14 +19,11 @@ body{
 button{
     padding: 1rem 3rem;
     cursor: pointer;
-    background-color: blanchedalmond;
     border-style: none;
     border-radius: 6px;
     font-size: 1rem;
 }
-button:hover{
-    background-color: rgb(247, 222, 185);
-}
+
 input{
     padding: 0.5rem 2rem;
     font-size: 1rem;
@@ -60,9 +57,34 @@ label{
 
 .todo-cont{
     background-color: aquamarine;
-    height: 50%;
+    padding: 2rem;
+}
+.todo-cont li{
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
 }
 
-.todo-cont li{
-    list-style-type: none;
+#todos{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+}
+
+.added-btns{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+}
+
+.untoggle{
+    background-color: burlywood;
+}
+.toggled{
+    background-color: rgb(221, 172, 107);
 }
